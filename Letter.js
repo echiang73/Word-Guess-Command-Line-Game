@@ -14,6 +14,9 @@ var Letter = function (character) {
         if (this.guessedLetterToShow) {
             return (this.character + " ");
         }
+        else if (character === " ") { // Takes into account of space in word
+            return ("  ");
+        }
         else {
             return ("_ ");
         }

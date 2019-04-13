@@ -24,27 +24,27 @@ var Word = function (word) {
     for(var i = 0; i < this.lettersToGuess.length; i++){
       displayedWord += this.lettersToGuess[i].display() + " ";
     }
-    // this.lettersToGuess.forEach(character => {
-    //   displayedWord += character.display() + " ";
-    // });
     return displayedWord;
   }
   // A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
   this.makeGuess = function(guessCharacter) {
-    var lowerGuessCharacter = guessCharacter.toLowerCase();
+    var isFound = false;
+    // var lowerGuessCharacter = guessCharacter.toLowerCase();
+    var lowerGuessCharacter = guessCharacter;
 	if (this.guessesMade.indexOf(lowerGuessCharacter) != -1) {
-		return "Duplicate";
+    // console.log("Duplicate!");
+		return true;
 	} 
 	this.guessesMade += lowerGuessCharacter; // Record the guess to guessesMade
 	for(var i = 0; i < this.lettersToGuess.length;i++){
-		if(this.lettersToGuess[i].value.toLowerCase() == lowerGuessCharacter){
-		this.lettersToGuess[i].guessedLetterToShow = true;
+		// if(this.lettersToGuess[i].value.toLowerCase() == lowerGuessCharacter){
+    if(this.lettersToGuess[i].character == lowerGuessCharacter){
+    this.lettersToGuess[i].guessedLetterToShow = true;
+    isFound = true;
     }
     // character.checkLetter(guessCharacter);
-	}
-    // this.lettersToGuess.forEach(character => {
-    //   character.checkLetter(guessCharacter);
-    // });
+  }
+  return isFound;
   };
 }
 

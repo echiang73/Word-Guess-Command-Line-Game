@@ -41,34 +41,37 @@ function guessWord() {
         name: "inputtxt",
         type: "text",
         message: "Guess a letter!",
-        // validate: function(value) {
-        //     if(value)){
-        //       return true;
-        //     } else{
-        //       return false;
-        //     }
-        //   }
-        // validate: function(value) {
-        //     var alpha = /^[A-Za-z]+$/;
-        //     if(value = alpha){
-        //         return true;
-        //     }
-        //     else if(value.length !=1){
-        //         return false;
-        //     }
-        // }
+        validate: function(value) {
+            if(value.length >1){
+                console.log("\nPlease enter a single letter!");
+                return false;
+            }
+            else if(isNaN(value) !== true){
+                console.log("\nPlease enter a letter!");
+                return false;
+            }
+            else{
+                return true;
+            }
+          }
     }]).then(function(guessedLetter){
         var letter = guessedLetter.inputtxt;
-        Word.makeGuess(letter);
-        if(Word.update()){
-            console.log("Yes, you guessed correctly " + Word.toString() + "!");
-            return;
-        }
-        else{
-            console.log("\n-------------------------");
-            // console.log("You have " + (maxGuesses - Word.guessesMade.length) + " guesses left!");
-            guessWord();
-        }
+        // console.log(letter);
+        chosenWordToGuess.makeGuess(letter)
+        console.log(chosenWordToGuess.makeGuess(letter));
+        guessWord();
+        
+        // if(this.guessedLetterToShow == true){
+        //     // chosenWordToGuess.update();
+        //     console.log("Yes, " + letter + " is correct!");
+        //     // return;
+        //     guessWord();
+        // }
+        // else{
+        //     console.log("\n-------------------------");
+        //     // console.log("You have " + (maxGuesses - Word.guessesMade.length) + " guesses left!");
+        //     guessWord();
+        // }
     })
     // }
 }
