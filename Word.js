@@ -10,42 +10,49 @@ var Word = function (word) {
   // this.numBlanks = 0;
 
   // A function that returns a string representing the word. 
-  this.makeLetters = function() {
+  this.makeLetters = function () {
     var wordArr = this.word.split("");
-    for(var i = 0; i < wordArr.length; i++) {
+    for (var i = 0; i < wordArr.length; i++) {
       var newLetter = new Letter(wordArr[i]);
       this.lettersToGuess.push(newLetter);
       // this.numBlanks = this.lettersToGuess.length;
     }
   }
   // This should call the function on each letter object (the first function defined in Letter.js) that displays the character or an underscore and concatenate those together.
-  this.update = function() {
+  this.update = function () {
     var displayedWord = "";
-    for(var i = 0; i < this.lettersToGuess.length; i++){
+    for (var i = 0; i < this.lettersToGuess.length; i++) {
       displayedWord += this.lettersToGuess[i].display() + " ";
     }
     return displayedWord;
   }
   // A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
-  this.makeGuess = function(guessCharacter) {
+  this.makeGuess = function (guessCharacter) {
     var isFound = false;
     var lowerGuessCharacter = guessCharacter.toLowerCase();
-    // var lowerGuessCharacter = guessCharacter;
-	if (this.guessesMade.indexOf(lowerGuessCharacter) != -1) {
-    // console.log("Duplicate!");
-		return true;
-	} 
-	this.guessesMade += lowerGuessCharacter; // Record the guess to guessesMade
-	for(var i = 0; i < this.lettersToGuess.length;i++){
-		if(this.lettersToGuess[i].character.toLowerCase() == lowerGuessCharacter){
-    // if(this.lettersToGuess[i].character == lowerGuessCharacter){
-    this.lettersToGuess[i].guessedLetterToShow = true;
-    isFound = true;
+    if (this.guessesMade.indexOf(lowerGuessCharacter) !== -1) {
+      console.log("Duplicate! Please enter a new letter!")
+      return false;
     }
-    // character.checkLetter(guessCharacter);
-  }
-  return isFound;
+    this.guessesMade += lowerGuessCharacter; // Record the guess to guessesMade
+    for (var i = 0; i < this.lettersToGuess.length; i++) {
+      if (this.lettersToGuess[i].character.toLowerCase() == lowerGuessCharacter) {
+        this.lettersToGuess[i].guessedLetterToShow = true;
+        isFound = true;
+      }
+    }
+    return isFound;
   };
+
+  this.isComplete = function(){
+    for(var i = 0; i < this.lettersToGuess.length; i++){
+      // console.log(this.lettersToGuess[i].guessedLetterToShow);
+      if(!this.lettersToGuess[i].guessedLetterToShow) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
 
 module.exports = Word;

@@ -1,0 +1,31 @@
+{
+  "name": "word-guess-command-line-game",
+  "version": "1.0.0",
+  "description": "Advanced JS Constructor Word Game package-json",
+  "main": "index.js",
+  "dependencies": {
+    "figlet": "^1.2.1",
+    "inquirer": "^6.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echiang73/Word-Guess-Command-Line-Game.git"
+  },
+  "keywords": [
+    "Advanced",
+    "JS",
+    "Constructor",
+    "Word",
+    "Game"
+  ],
+  "author": "Eddie Chiang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/echiang73/Word-Guess-Command-Line-Game/issues"
+  },
+  "homepage": "https://github.com/echiang73/Word-Guess-Command-Line-Game#readme"
+}
