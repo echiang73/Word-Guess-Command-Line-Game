@@ -40,8 +40,12 @@ function chooseRandomWord() {
 function guessWord() {
     console.log(chosenWordToGuess.update());
     if (chosenWordToGuess.guessesMade.length >= maxGuesses) {
-        console.log("You have no more guesses left. The word to guess was " + randomWordToGuess + ", Game Over!");
-        return;
+        // console.log("You have no more guesses left. The word to guess was " + randomWordToGuess + ", Game Over!");
+        console.log("Game Over! You have no more guesses left. The word to guess was the: ");
+        displayAnswerFiglet();
+        // return;
+        askPlayAgain();
+        return false;
     }
     inquirer.prompt([{
         name: "inputtxt",
@@ -68,14 +72,7 @@ function guessWord() {
 
         if (chosenWordToGuess.isComplete()) {
             console.log("Congratulations! It was the:");
-            figlet(randomWordToGuess, function(err, data) {
-                if (err) {
-                    console.log('Something went wrong...');
-                    console.dir(err);
-                    return;
-                }
-                console.log(data)
-            });
+            displayAnswerFiglet();
             // return;
             askPlayAgain();
         }
@@ -109,6 +106,17 @@ function askPlayAgain() {
             // });
             return;
         }
+    });
+}
+
+function displayAnswerFiglet(){
+    figlet(randomWordToGuess, function(err, data) {
+        if (err) {
+            console.log('Something went wrong...');
+            console.dir(err);
+            return;
+        }
+        console.log(data)
     });
 }
 
