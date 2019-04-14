@@ -17,7 +17,7 @@ This is a command line interface Word Guess Game designed with constructor funct
 * Node Package Manager (npm)
 
 ## npm packages: 
-* [Inquirer.js](https://www.npmjs.com/package/inquirer) - A collection of common interactive command line user interfaces to provide inquiry session flow.
+* [Inquirer.js](https://www.npmjs.com/package/inquirer) - A collection of common interactive command line user interfaces to provide inquiry session flow. :question: :speech_balloon:
 * [Figlet](https://www.npmjs.com/package/figlet) - Create ASCII text banners from plain text, using command-line utilities to fully implement the FIGfont spec in JavaScript. :pencil: :computer:
 
 
