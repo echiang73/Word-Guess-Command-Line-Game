@@ -29,16 +29,16 @@ var Word = function (word) {
   // A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
   this.makeGuess = function(guessCharacter) {
     var isFound = false;
-    // var lowerGuessCharacter = guessCharacter.toLowerCase();
-    var lowerGuessCharacter = guessCharacter;
+    var lowerGuessCharacter = guessCharacter.toLowerCase();
+    // var lowerGuessCharacter = guessCharacter;
 	if (this.guessesMade.indexOf(lowerGuessCharacter) != -1) {
     // console.log("Duplicate!");
 		return true;
 	} 
 	this.guessesMade += lowerGuessCharacter; // Record the guess to guessesMade
 	for(var i = 0; i < this.lettersToGuess.length;i++){
-		// if(this.lettersToGuess[i].value.toLowerCase() == lowerGuessCharacter){
-    if(this.lettersToGuess[i].character == lowerGuessCharacter){
+		if(this.lettersToGuess[i].character.toLowerCase() == lowerGuessCharacter){
+    // if(this.lettersToGuess[i].character == lowerGuessCharacter){
     this.lettersToGuess[i].guessedLetterToShow = true;
     isFound = true;
     }

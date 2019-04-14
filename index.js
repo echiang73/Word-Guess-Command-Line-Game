@@ -19,7 +19,7 @@ function chooseRandomWord() {
     chosenWordToGuess = new Word(randomWordToGuess);
     console.log(randomWordToGuess);
     chosenWordToGuess.makeLetters();
-    console.log(chosenWordToGuess);
+    // console.log(chosenWordToGuess);
 }
 
 // var generateMaxGuesses = function() {
