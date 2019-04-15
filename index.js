@@ -4,11 +4,11 @@ var Word = require("./Word.js");
 var inquirer = require("inquirer");
 var figlet = require("figlet");
 
-var maxGuesses = 15;
+var maxGuesses;
 var wins = 0;
 var losses = 0;
-var wordsToGuessArray = ["Hawks", "Celtics", "Nets", "Hornets", "Bulls", "Cavaliers", "Mavericks", "Nuggets", "Pistons", "Warriors", "Rockets", "Pacers", "Clippers", "Lakers", "Grizzlies", "Heat", "Bucks", "Timberwolves", "Pelicans", "Knicks", "Thunder", "Magic", "Sixers", "Suns", "Blazers", "Kings", "Spurs", "Raptors", "Jazz", "Wizards"];
-// var wordsToGuessArray = ["Boston Celtics", "Houston Rockets", "Phoenix Suns", "Chicago Bulls"];
+// var wordsToGuessArray = ["Hawks", "Celtics", "Nets", "Hornets", "Bulls", "Cavaliers", "Mavericks", "Nuggets", "Pistons", "Warriors", "Rockets", "Pacers", "Clippers", "Lakers", "Grizzlies", "Heat", "Bucks", "Timberwolves", "Pelicans", "Knicks", "Thunder", "Magic", "Sixers", "Suns", "Blazers", "Kings", "Spurs", "Raptors", "Jazz", "Wizards"];
+var wordsToGuessArray = ["Atlanta Hawks", "Boston Celtics", "Brooklyn Nets", "Charlotte Hornets", "Chicago Bulls", "Cleveland Cavaliers", "Dallas Mavericks", "Denver Nuggets", "Detroit Pistons", "Golden State Warriors", "Houston Rockets", "Indiana Pacers", "Los Angeles Clippers", "Los Angeles Lakers", "Memphis Grizzlies", "Miami Heat", "Milwaukee Bucks", "Minnesota Timberwolves", "New Orlean Pelicans", "New York Knicks", "Oklahoma City Thunder", "Orlando Magic", "Philadelphia Sixers", "Phoenix Suns", "Portland Blazers", "Sacramento Kings", "San Antonio Spurs", "Toronto Raptors", "Utah Jazz", "Washington Wizards"];
 var randomWordToGuess;
 var chosenWordToGuess;
 
@@ -33,7 +33,13 @@ function chooseRandomWord() {
     // console.log(randomWordToGuess); // Displays the answer!
     chosenWordToGuess.makeLetters();
     // console.log(chosenWordToGuess);
+    determineMaxGuesses();
     guessWord();
+}
+
+function determineMaxGuesses(){
+    maxGuesses = Math.floor(randomWordToGuess.length * 1.5);
+    console.log("You have " + maxGuesses + " total!\n");
 }
 
 // Prompts the user for each guess and keeps track of the user's remaining guesses

@@ -15,6 +15,7 @@ var Letter = function (character) {
             return (this.character + " ");
         }
         else if (character === " ") { // Takes into account of space in word
+            this.guessedLetterToShow = true; // This will allow boolean to always be true for spaces so we can use two/three words for the name of randomWordToGuess!
             return ("  ");
         }
         else {
