@@ -12,14 +12,14 @@ var Letter = function (character) {
     // A function that returns the underlying character if the letter has been guessed, or a placeholder (like an underscore) if the letter has not been guessed
     this.display = function () {
         if (this.guessedLetterToShow) {
-            return (this.character + " ");
+            return (this.character.blue + " "); // Display answer character in blue
         }
         else if (character === " ") { // Takes into account of space in word
             this.guessedLetterToShow = true; // This will allow boolean to always be true for spaces so we can use two/three words for the name of randomWordToGuess!
             return ("  ");
         }
         else {
-            return ("_ ");
+            return ("_ ".red); // Display blanks in red
         }
     }
     

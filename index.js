@@ -3,6 +3,7 @@
 var Word = require("./Word.js");
 var inquirer = require("inquirer");
 var figlet = require("figlet");
+var colors = require("colors");
 
 var maxGuesses;
 var wins = 0;
